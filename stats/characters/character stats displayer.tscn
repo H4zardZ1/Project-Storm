@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn601k06fxwkx"]
+
+[ext_resource type="Script" path="res://stats/characters/character stats displayer.gd" id="1_tqvwl"]
+[ext_resource type="PackedScene" uid="uid://d2xvsg1oailks" path="res://stats/characters/stat row.tscn" id="2_usdfe"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r7b7x"]
+size = Vector2(64, 64)
+
+[node name="CharacterStatsDisplayer" type="VBoxContainer"]
+script = ExtResource("1_tqvwl")
+packed_stat_row = ExtResource("2_usdfe")
+
+[node name="Top" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CharacterImage" type="TextureRect" parent="Top"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_r7b7x")
+
+[node name="Label" type="Label" parent="Top"]
+layout_mode = 2
+text = "Name Name"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2

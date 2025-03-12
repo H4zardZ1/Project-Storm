@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbsr45t7ex7tm"]
+
+[ext_resource type="Script" path="res://stats/actions/action stats display.gd" id="1_8vmfk"]
+[ext_resource type="PackedScene" uid="uid://dwkol3u3uph1i" path="res://stats/actions/die display.tscn" id="1_nx53d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_shh46"]
+font_size = 32
+font_color = Color(0.431373, 0.431373, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="card" type="PanelContainer"]
+custom_minimum_size = Vector2(216, 0)
+script = ExtResource("1_8vmfk")
+cost_label_path = NodePath("VBoxContainer/HBoxContainer/Cost")
+card_name_label_path = NodePath("VBoxContainer/HBoxContainer/Name")
+card_text_label_path = NodePath("VBoxContainer/CardText")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "42"
+label_settings = SubResource("LabelSettings_shh46")
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Name"
+
+[node name="CardText" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+text = "Card text and everything "
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="DieDisplay" parent="VBoxContainer" instance=ExtResource("1_nx53d")]
+layout_mode = 2

@@ -1,0 +1,133 @@
+extends Node
+
+# signals
+signal drew(card)
+signal card_moved(card, arg)
+# variables
+var deck: Array[ActionStats] = []
+var hand: Array[ActionStats] = []
+var search_constraints # Do I even need to force-type this?
+
+## A Dictionary that contains piles that can be moved to/from. 
+## Each value should be of type Array[ActionStats].
+## "deck" and "hand" are reserved for this class's own hand and deck values.
+var extra_piles: Dictionary = {
+	"deck" : deck,
+	"hand" : hand
+}
+## A Dictionary that holds the limit of how many cards can be held by the pile it's named of.
+## Each value should be of type int.
+## If a pile lacks its threshold value, or it is -1, there is no limit on how much cards the pile can hold.
+var piles_threshold: Dictionary = {
+	"hand" : 8
+}
+
+# init
+func _init():
+	randomize()
+
+# enter_tree
+
+# ready (including onready variables)
+#func _ready():
+	#pass
+
+# functions
+
+func get_pile_by_name(pile_name: String) -> Array:
+	if pile_name in extra_piles:
+		return extra_piles.get(pile_name)
+	else:
+		extra_piles[pile_name] = []
+		return extra_piles.get(pile_name)
+
+func get_pile_threshold_by_name(pile_name: String) -> int:
+	return piles_threshold.get(pile_name, -1)
+
+func move_cards_random(amount :int, from_pile_name: String, to_pile_name: String, arg: String = ""):
+	var to_pile: Array
+	var from_pile: Array
+	var to_pile_threshold :int
+	var move_limit: int
+
+	from_pile = get_pile_by_name(from_pile_name)
+	if from_pile.is_empty():
+		print("Pile '{pile}' has no cards to draw from")
+		return
+
+	to_pile = get_pile_by_name(to_pile_name)
+	to_pile_threshold = get_pile_threshold_by_name(to_pile_name)
+
+	if to_pile_threshold == -1:
+		move_limit = to_pile.size()
+	else:
+		move_limit = to_pile_threshold - to_pile.size()
+	if amount < 0:
+		amount = move_limit
+	else: 
+		amount = mini(amount, move_limit)
+	for i in range(amount): 
+		var move_target_index: int = randi_range(0, from_pile.size())
+		var move_target: Object = from_pile.pop_at(move_target_index)
+
+		to_pile.append(move_target)
+		match arg:
+			"draw":
+				if move_target.has_method("on_draw"):
+					move_target.on_draw(self)
+					drew.emit(move_target)
+			var arg_bound:
+				if move_target.has_method("on_move"):
+					move_target.on_move(self, arg_bound)
+					card_moved.emit(move_target, arg_bound)
+	return
+
+func move_cards_by_indices(to_move_indices: Array[int], from_pile_name: String, to_pile_name: String, \
+arg: String = ""):
+	var from_pile: Array = get_pile_by_name(from_pile_name)
+	if from_pile.is_empty():
+		print("Pile '{pile}' has no cards to draw from")
+		return
+
+	var to_pile: Array = get_pile_by_name(to_pile_name)
+	var to_pile_threshold :int = get_pile_threshold_by_name(to_pile_name)
+
+	var move_limit: int
+	if to_pile_threshold == -1:
+		move_limit = to_pile.size()
+	else:
+		move_limit = to_pile_threshold - to_pile.size()
+
+	var moved_indices: Array[int] = []
+	for i in to_move_indices:
+		if moved_indices.size() >= move_limit:
+			break
+		var move_target_index: int = to_move_indices.pop_at(randi_range(0, to_move_indices.size()))
+		var move_target: Object = from_pile[move_target_index]
+		to_pile.append(move_target)
+		match arg:
+			"draw":
+				if move_target.has_method("on_draw"):
+					move_target.on_draw(self)
+					drew.emit(move_target)
+			var arg_bound:
+				if move_target.has_method("on_move"):
+					move_target.on_move(self, arg_bound)
+					card_moved.emit(move_target, arg_bound)
+		moved_indices.append(move_target_index)
+	moved_indices.sort_custom(func(a, b): return a > b)
+	for i in moved_indices:
+		from_pile.remove_at(i)
+
+func draw(amount: int):
+	self.move_cards_random(amount, "deck", "hand", "draw")
+
+func draw_by_indices(to_draw_indices: Array[int]):
+	self.move_cards_by_indices(to_draw_indices, "deck", "hand", "draw")
+
+#func discard_search(Array:to_discard_indices)
+
+#func played
+
+
+

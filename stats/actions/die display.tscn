@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwkol3u3uph1i"]
+
+[ext_resource type="Script" path="res://stats/actions/default die display.gd" id="1_1a2uj"]
+[ext_resource type="Texture2D" uid="uid://ckbqr1my8gskc" path="res://stats/actions/attack type.svg" id="2_d6vkw"]
+[ext_resource type="Texture2D" uid="uid://corus38b05kv3" path="res://stats/actions/projectile type.svg" id="3_iqrht"]
+[ext_resource type="Texture2D" uid="uid://cwk1y7tg8kwnr" path="res://stats/actions/defense type.svg" id="4_70y8j"]
+[ext_resource type="Texture2D" uid="uid://cllcnssy5mstt" path="res://stats/actions/movement type.svg" id="5_v1uxk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wobvh"]
+font_color = Color(0.615686, 1, 0.4, 1)
+
+[node name="DieDisplay" type="HBoxContainer"]
+script = ExtResource("1_1a2uj")
+
+[node name="SpeedCost" type="Label" parent="."]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_wobvh")
+
+[node name="AttackType" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_d6vkw")
+
+[node name="ProjectileType" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_iqrht")
+
+[node name="DefenseType" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_70y8j")
+
+[node name="MovementType" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("5_v1uxk")
+
+[node name="RollRange" type="Label" parent="."]
+layout_mode = 2
+text = "25 - 42"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="DieText" type="Label" parent="."]
+layout_mode = 2
+text = "Die text"

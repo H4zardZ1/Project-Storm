@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2xvsg1oailks"]
+
+[ext_resource type="Script" path="res://common/bouncing character scroll.gd" id="1_gjk6u"]
+[ext_resource type="Script" path="res://stats/characters/stat row.gd" id="1_h6cmo"]
+
+[node name="StatRow" type="HBoxContainer"]
+script = ExtResource("1_h6cmo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Text"
+
+[node name="S" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("1_gjk6u")
+
+[node name="Label" type="Label" parent="S"]
+layout_mode = 2
+text = "Whether that be in love, or in agony..."
+
+[connection signal="focus_entered" from="S" to="S" method="_on_focus_entered"]
+[connection signal="focus_exited" from="S" to="S" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="S" to="S" method="_on_focus_entered"]
+[connection signal="mouse_exited" from="S" to="S" method="_on_focus_exited"]
+[connection signal="resized" from="S" to="S" method="disturbed"]
+[connection signal="resized" from="S/Label" to="S" method="disturbed"]

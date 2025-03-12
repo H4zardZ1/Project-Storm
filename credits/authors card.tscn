@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2d8gtitpxj2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekb0j"]
+font_size = 20
+
+[node name="AuthorsCard" type="VBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ekb0j")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cioyi3bb6negq"]
+
+[node name="SaveMenu" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(230, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Create new save"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+placeholder_text = "Enter name here..."

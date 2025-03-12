@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActionStats" load_steps=3 format=3 uid="uid://c4b38dil7r4w7"]
+
+[ext_resource type="Script" path="res://stats/actions/die stats resource.gd" id="1_enrae"]
+[ext_resource type="Script" path="res://stats/actions/action stats resource.gd" id="2_8yd02"]
+
+[resource]
+script = ExtResource("2_8yd02")
+display_name = ""
+play_point_cost = 0
+speed_cost = 0
+exclusive = []
+cinematics = ""
+character_movement = ""
+action_dice = Array[ExtResource("1_enrae")]([])

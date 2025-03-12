@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ftwykcqwa2kj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y5e13"]
+top_radius = 100.0
+bottom_radius = 100.0
+
+[node name="CHEA Arena" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_y5e13")

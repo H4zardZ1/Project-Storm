@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm04bpoti12ee"]
+
+[ext_resource type="Script" path="res://credits/credits node.gd" id="1_d3x6r"]
+[ext_resource type="Script" path="res://credits/color change.gd" id="1_tdsuk"]
+[ext_resource type="Texture2D" uid="uid://cdf3ba8061tia" path="res://credits/splash.png" id="2_7v8u1"]
+[ext_resource type="Script" path="res://credits/version.gd" id="3_op8ht"]
+[ext_resource type="Script" path="res://credits/authors.gd" id="4_d4hx2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cae8h"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 1, 0)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 60.0
+gravity = Vector3(0, -1, 0)
+
+[sub_resource type="Gradient" id="Gradient_vlj8o"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qvdtl"]
+gradient = SubResource("Gradient_vlj8o")
+width = 10
+height = 10
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="CreditsScene" type="Node"]
+script = ExtResource("1_d3x6r")
+
+[node name="TextLayer" type="CanvasLayer" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextLayer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="TextLayer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "PROJECT STORM
+Haze Ustern"
+horizontal_alignment = 1
+
+[node name="GodotSplash" type="TextureRect" parent="TextLayer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7v8u1")
+stretch_mode = 5
+
+[node name="Version" type="Label" parent="TextLayer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+script = ExtResource("3_op8ht")
+
+[node name="Authors" type="GridContainer" parent="TextLayer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+script = ExtResource("4_d4hx2")
+
+[node name="ColorChange" type="Node" parent="."]
+script = ExtResource("1_tdsuk")
+
+[node name="ParticleLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticleLayer"]
+position = Vector2(570, 648)
+amount = 49
+process_material = SubResource("ParticleProcessMaterial_cae8h")
+texture = SubResource("GradientTexture2D_qvdtl")
+lifetime = 16.0
+draw_order = 0

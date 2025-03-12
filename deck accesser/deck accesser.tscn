@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://chx6k3ijq2e82"]
+
+[ext_resource type="PackedScene" uid="uid://bp16pbh0yttok" path="res://deck accesser/character search.tscn" id="1_0i413"]
+[ext_resource type="PackedScene" uid="uid://dfjo2ab0oyral" path="res://deck accesser/played characters.tscn" id="1_cavui"]
+[ext_resource type="PackedScene" uid="uid://d1fee32ngco7u" path="res://deck accesser/card search.tscn" id="2_dpnv6"]
+
+[node name="DeckAccesser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayedCharacters" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_cavui")]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
+layout_mode = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="CharacterSearch" parent="HBoxContainer/TabContainer" instance=ExtResource("1_0i413")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="CardSearch" parent="HBoxContainer/TabContainer" instance=ExtResource("2_dpnv6")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

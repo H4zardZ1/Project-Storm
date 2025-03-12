@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b07qrhanow6a6"]
+
+[ext_resource type="AudioStream" uid="uid://uof3thkopxtm" path="res://bgm/lobby/redfield(3).wav" id="1_me1y6"]
+[ext_resource type="Script" path="res://menu/main menu bgm player.gd" id="2_a1hg8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Map" type="SubViewportContainer" parent="TabContainer"]
+layout_mode = 2
+stretch = true
+metadata/_tab_index = 0
+
+[node name="SubViewport" type="SubViewport" parent="TabContainer/Map"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+script = ExtResource("2_a1hg8")
+tracks_to_use = Array[AudioStream]([ExtResource("1_me1y6")])

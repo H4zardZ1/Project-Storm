@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp16pbh0yttok"]
+
+[ext_resource type="Script" path="res://deck accesser/character search.gd" id="1_w5r38"]
+
+[node name="CharacterSearch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5r38")
+character_button_file = "res://stats/characters/character button.tscn"
+
+[node name="VC" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Title" type="Label" parent="VC"]
+layout_mode = 2
+text = "CHARACTERS"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VC"]
+layout_mode = 2
+
+[node name="NameSL" type="Label" parent="VC"]
+layout_mode = 2
+text = "Name
+"
+
+[node name="FS" type="LineEdit" parent="VC"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VC"]
+layout_mode = 2
+text = "Sort Options"
+
+[node name="SortOptions" type="OptionButton" parent="VC"]
+layout_mode = 2
+clip_text = true
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Standard"
+popup/item_1/text = "Name"
+popup/item_1/id = 1
+popup/item_2/text = "HP"
+popup/item_2/id = 2
+
+[node name="CheckButton" type="CheckButton" parent="VC"]
+layout_mode = 2
+text = "Descending"
+
+[node name="SC" type="ScrollContainer" parent="VC"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VC/SC"]
+layout_mode = 2

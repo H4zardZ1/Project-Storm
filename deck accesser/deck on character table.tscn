@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bv3vuep3jig4q"]
+
+[node name="DeckOnCharacterTable" type="PanelContainer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

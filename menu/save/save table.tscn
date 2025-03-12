@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://2uymdjic5i0s"]
+
+[node name="SaveTable" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 70)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "chea 1:12:34
+Last Saved []"
