@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActionStats" load_steps=3 format=3 uid="uid://dacwl21sy4gmx"]
 
-[ext_resource type="Script" path="res://stats/actions/action stats resource.gd" id="1_kcxul"]
-[ext_resource type="Script" path="res://stats/actions/die stats resource.gd" id="1_sy7l1"]
+[ext_resource type="Script" uid="uid://dj3i0kgigt4r1" path="res://stats/actions/action stats resource.gd" id="1_kcxul"]
+[ext_resource type="Script" uid="uid://bi0xy1co8v01n" path="res://stats/actions/die stats resource.gd" id="1_sy7l1"]
 
 [resource]
 script = ExtResource("1_kcxul")

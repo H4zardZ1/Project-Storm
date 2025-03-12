@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn601k06fxwkx"]
 
-[ext_resource type="Script" path="res://stats/characters/character stats displayer.gd" id="1_tqvwl"]
+[ext_resource type="Script" uid="uid://dyu740ublmfrw" path="res://stats/characters/character stats displayer.gd" id="1_tqvwl"]
 [ext_resource type="PackedScene" uid="uid://d2xvsg1oailks" path="res://stats/characters/stat row.tscn" id="2_usdfe"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r7b7x"]

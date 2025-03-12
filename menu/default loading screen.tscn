@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://r4shxti15ebc"]
 
-[ext_resource type="Script" path="res://menu/default loading screen.gd" id="1_g3ut8"]
+[ext_resource type="Script" uid="uid://dv80yjjna046y" path="res://menu/default loading screen.gd" id="1_g3ut8"]
 
 [sub_resource type="Animation" id="Animation_lub1t"]
 length = 0.001
@@ -85,9 +85,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_apa3s"]
 _data = {
-"RESET": SubResource("Animation_lub1t"),
-"end_load": SubResource("Animation_o3ne5"),
-"start_load": SubResource("Animation_bsral")
+&"RESET": SubResource("Animation_lub1t"),
+&"end_load": SubResource("Animation_o3ne5"),
+&"start_load": SubResource("Animation_bsral")
 }
 
 [node name="DefaultLoadingScreen" type="CanvasLayer"]

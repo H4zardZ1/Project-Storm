@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1qlrnt0ei4wr"]
 
-[ext_resource type="Script" path="res://stats/characters/character button.gd" id="1_0v8mn"]
+[ext_resource type="Script" uid="uid://cc67l3h1k5rp2" path="res://stats/characters/character button.gd" id="1_0v8mn"]
 
 [node name="CharacterButton" type="TextureButton"]
 script = ExtResource("1_0v8mn")

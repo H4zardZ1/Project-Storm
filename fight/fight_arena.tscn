@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhjcb8ofvqefb"]
 
-[ext_resource type="Script" path="res://fight/visual_arena_loader.gd" id="1_oihgf"]
+[ext_resource type="Script" uid="uid://3gghn18ab7a5" path="res://fight/visual_arena_loader.gd" id="1_oihgf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dbb5w"]
 radius = 100.0

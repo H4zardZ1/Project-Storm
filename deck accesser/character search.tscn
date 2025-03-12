@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bp16pbh0yttok"]
 
-[ext_resource type="Script" path="res://deck accesser/character search.gd" id="1_w5r38"]
+[ext_resource type="Script" uid="uid://d4mqy8jpeu1la" path="res://deck accesser/character search.gd" id="1_w5r38"]
 
 [node name="CharacterSearch" type="Control"]
 layout_mode = 3

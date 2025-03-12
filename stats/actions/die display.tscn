@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwkol3u3uph1i"]
 
-[ext_resource type="Script" path="res://stats/actions/default die display.gd" id="1_1a2uj"]
+[ext_resource type="Script" uid="uid://cq7sje3uqa4aw" path="res://stats/actions/default die display.gd" id="1_1a2uj"]
 [ext_resource type="Texture2D" uid="uid://ckbqr1my8gskc" path="res://stats/actions/attack type.svg" id="2_d6vkw"]
 [ext_resource type="Texture2D" uid="uid://corus38b05kv3" path="res://stats/actions/projectile type.svg" id="3_iqrht"]
 [ext_resource type="Texture2D" uid="uid://cwk1y7tg8kwnr" path="res://stats/actions/defense type.svg" id="4_70y8j"]

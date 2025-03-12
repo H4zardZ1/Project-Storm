@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bws013p2ihy4j"]
 
-[ext_resource type="Script" path="res://fight/combatant/combatant body.gd" id="1_b7ti7"]
+[ext_resource type="Script" uid="uid://booi2l6i04xkj" path="res://fight/combatant/combatant body.gd" id="1_b7ti7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6wkp3"]
 

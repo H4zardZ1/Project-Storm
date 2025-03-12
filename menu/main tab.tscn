@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b07qrhanow6a6"]
 
 [ext_resource type="AudioStream" uid="uid://uof3thkopxtm" path="res://bgm/lobby/redfield(3).wav" id="1_me1y6"]
-[ext_resource type="Script" path="res://menu/main menu bgm player.gd" id="2_a1hg8"]
+[ext_resource type="Script" uid="uid://bw0xus1vvjlf5" path="res://menu/main menu bgm player.gd" id="2_a1hg8"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3

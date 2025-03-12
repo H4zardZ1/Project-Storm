@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6p3kqqoke6oa"]
 
-[ext_resource type="Script" path="res://menu/text modal.gd" id="1_nvffa"]
+[ext_resource type="Script" uid="uid://c3l7up1vdfviw" path="res://menu/text modal.gd" id="1_nvffa"]
 
 [node name="TextModal" type="PanelContainer"]
 offset_right = 200.0

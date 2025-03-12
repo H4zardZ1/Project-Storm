@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bm04bpoti12ee"]
 
-[ext_resource type="Script" path="res://credits/credits node.gd" id="1_d3x6r"]
-[ext_resource type="Script" path="res://credits/color change.gd" id="1_tdsuk"]
+[ext_resource type="Script" uid="uid://d3y7npaahnkik" path="res://credits/credits node.gd" id="1_d3x6r"]
+[ext_resource type="Script" uid="uid://l1mtw3ernds4" path="res://credits/color change.gd" id="1_tdsuk"]
 [ext_resource type="Texture2D" uid="uid://cdf3ba8061tia" path="res://credits/splash.png" id="2_7v8u1"]
-[ext_resource type="Script" path="res://credits/version.gd" id="3_op8ht"]
-[ext_resource type="Script" path="res://credits/authors.gd" id="4_d4hx2"]
+[ext_resource type="Script" uid="uid://dq08khihtdfcj" path="res://credits/version.gd" id="3_op8ht"]
+[ext_resource type="Script" uid="uid://bs6mjogpf8qg0" path="res://credits/authors.gd" id="4_d4hx2"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cae8h"]
 particle_flag_disable_z = true

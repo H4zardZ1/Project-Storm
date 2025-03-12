@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfjo2ab0oyral"]
 
-[ext_resource type="Script" path="res://deck accesser/played_characters.gd" id="1_4f8nj"]
+[ext_resource type="Script" uid="uid://dvpm2w2u0uqqw" path="res://deck accesser/played_characters.gd" id="1_4f8nj"]
 [ext_resource type="Texture2D" uid="uid://cysi5xp8vqbki" path="res://deck accesser/plus.png" id="1_ev1au"]
 
 [node name="PlayedCharacters" type="PanelContainer"]

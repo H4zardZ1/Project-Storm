@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4bhqrmbo3iwx"]
 
-[ext_resource type="Script" path="res://menu/start/enter save name popup.gd" id="1_3n8fk"]
-[ext_resource type="Script" path="res://menu/start/exit.gd" id="1_4g71g"]
+[ext_resource type="Script" uid="uid://bsuqq87e6q4ef" path="res://menu/start/enter save name popup.gd" id="1_3n8fk"]
+[ext_resource type="Script" uid="uid://746qi6272r1e" path="res://menu/start/exit.gd" id="1_4g71g"]
 [ext_resource type="PackedScene" uid="uid://c6p3kqqoke6oa" path="res://menu/text modal.tscn" id="1_wnihc"]
-[ext_resource type="Script" path="res://common/load node.gd" id="3_g7e0o"]
+[ext_resource type="Script" uid="uid://hkv1k16frh5g" path="res://common/load node.gd" id="3_g7e0o"]
 
 [node name="StartMenu" type="Node"]
 
