@@ -9,8 +9,8 @@ class_name CharacterStats
 @export var max_health: int = 100
 @export var max_mental: int = 100
 @export var max_guard: int = 40
-@export var attack_factor: int = 10
-@export var defense_factor: int = 7
+@export var attack_factor: int = 3
+@export var defense_factor: int = 1
 @export var speed: int = 10
 @export var max_play_points_each_level: Array[int] = [5, 5, 5, 5, 5, 5]
 var max_level: int:

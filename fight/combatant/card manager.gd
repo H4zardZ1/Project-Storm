@@ -1,19 +1,22 @@
 extends Node
+class_name ActionManager
 
 # signals
 signal drew(card)
 signal card_moved(card, arg)
 # variables
-var deck: Array[ActionStats] = []
-var hand: Array[ActionStats] = []
+var deck: Array[Action] = []
+var hand: Array[Action] = []
+var discard: Array[Action] = []
 var search_constraints # Do I even need to force-type this?
 
 ## A Dictionary that contains piles that can be moved to/from. 
-## Each value should be of type Array[ActionStats].
+## Each value should be of type Array[Action].
 ## "deck" and "hand" are reserved for this class's own hand and deck values.
-var piles: Dictionary = {
-	"deck" : deck,
-	"hand" : hand
+var piles: Dictionary[String, Array] = {
+	"deck" : deck, # since these are by-ref type, i can just do this
+	"hand" : hand,
+	"discard": discard
 }
 ## A Dictionary that holds the limit of how many cards can be held by the pile it's named of.
 ## Each value should be of type int.
@@ -34,6 +37,7 @@ func _init():
 
 # functions
 
+## Note: This function creates a new Pile if such a Pile doesn't exist.
 func get_pile_by_name(pile_name: String) -> Array:
 	if pile_name in piles:
 		return piles.get(pile_name)
@@ -67,8 +71,8 @@ func move_cards_random(amount :int, from_pile_name: String, to_pile_name: String
 	else: 
 		amount = min(amount, move_limit)
 
-	# The deck isn't actually shuffled, it's just drawing from random locations
-	# ...what's the name of this shuffle again?
+	# Lazy Fisher-Yates Shuffle: 
+	# I don't shuffle, I just draw from a random index in the deck
 	for i in range(amount): 
 		var move_target_index: int = randi_range(0, from_pile.size())
 		var move_target: Object = from_pile.pop_at(move_target_index)

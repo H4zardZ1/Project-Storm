@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3x8gxegqp8tu"]
+
+[ext_resource type="Script" uid="uid://dbbqibm4whgw1" path="res://common/text modal server.gd" id="1_lcqjf"]
+[ext_resource type="PackedScene" uid="uid://q853y2xmd3wh" path="res://common/text modal.tscn" id="2_ccn0h"]
+
+[node name="TextModalServer" type="Node"]
+script = ExtResource("1_lcqjf")
+text_modal = ExtResource("2_ccn0h")

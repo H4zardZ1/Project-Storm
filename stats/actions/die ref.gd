@@ -1,5 +1,5 @@
 extends RefCounted
-class_name ActionDie
+class_name 	ActionDie
 
 signal about_to_roll()
 # Since Resource inherits RefCounted, and this also inherits RefCounted, the last common ancestor is RefCounted.
@@ -37,11 +37,11 @@ func _init(v = null) -> void:
 		TYPE_NIL:
 			print("Die ready to be edited.")
 		_:
-			push_error("Cannot process variant '{0}' of type '{1}'.(The constructor should be able to accept creating new objects without any variables)".format([v, typeof(v)]))
+			push_error("Cannot process variant '{0}' of type '{1}'.(The constructor should be able to accept creating new objects from null (i.e. no variables))".format([v, typeof(v)]))
 	return
 
 func init_dict(d: Dictionary) -> void:
-	var err_t := ""
+	# var err_t := ""
 	basic_types = d.basic_types
 	move_direction = d.move_direction
 	
@@ -58,8 +58,8 @@ func init_dict(d: Dictionary) -> void:
 	cinematics = d.cinematics
 	character_movement = d.character_movement
 	
-	if err_t:
-		push_error(err_t)
+	# if err_t:
+	# 	push_error(err_t)
 	
 	return
 
@@ -70,10 +70,10 @@ func init_obj(o: Object) -> void:
 			if prop == "passive":
 				for p in o[prop]:
 					add_passive(p)
-			self[prop] = o[prop]
+			else: 
+				self[prop] = o[prop]
 		elif not (prop in self):
-			assert(false, "that doesnt work (how'd you get to this part of code)")
-			break
+			assert(false, "Property '{0}' not found in script that governs the type 'ActionDie'".format([prop]))
 		else:
 			err_p.append(prop)
 	if not err_p.is_empty():
@@ -87,6 +87,7 @@ func _perror_init_obj(accum, t):
 	else:
 		return "'{0}'".format([t])
 
+# TODO: add recursive duplicate setting
 func duplicate() -> ActionDie:
 	return ActionDie.new(self)
 
@@ -94,7 +95,7 @@ func add_passive(p: ActionDieEffect):
 	p.connect_die(self)
 	passive.append(p)
 
-func roll():
+func roll() -> int:
 	about_to_roll.emit()
 	var result: int = randi_range(roll_value_1, roll_value_2)
 	return result

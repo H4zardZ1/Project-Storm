@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2xvsg1oailks"]
 
-[ext_resource type="Script" uid="uid://h141rrdgg5kg" path="res://common/bouncing character scroll.gd" id="1_gjk6u"]
+[ext_resource type="Script" uid="uid://h141rrdgg5kg" path="res://common/bouncing scroll.gd" id="1_gjk6u"]
 [ext_resource type="Script" uid="uid://chhgo2tiighxc" path="res://stats/characters/stat row.gd" id="1_h6cmo"]
 
 [node name="StatRow" type="HBoxContainer"]

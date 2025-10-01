@@ -90,10 +90,10 @@ _data = {
 &"start_load": SubResource("Animation_bsral")
 }
 
-[node name="DefaultLoadingScreen" type="CanvasLayer"]
+[node name="DefaultLoadingScreen" type="CanvasLayer" node_paths=PackedStringArray("progress_bar")]
 follow_viewport_enabled = true
 script = ExtResource("1_g3ut8")
-progress_bar_path = NodePath("ColorRect/ProgressBar")
+progress_bar = NodePath("ColorRect/ProgressBar")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -122,7 +122,7 @@ max_value = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_apa3s")
+&"": SubResource("AnimationLibrary_apa3s")
 }
 autoplay = "start_load"
 

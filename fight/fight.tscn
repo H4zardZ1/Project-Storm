@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhjcb8ofvqefb"]
+
+[ext_resource type="PackedScene" uid="uid://cbsr45t7ex7tm" path="res://stats/actions/card.tscn" id="1_khwc4"]
+[ext_resource type="Script" uid="uid://3gghn18ab7a5" path="res://fight/visual_arena_loader.gd" id="1_oihgf"]
+[ext_resource type="Script" uid="uid://c5qf2ci76yank" path="res://fight/fight manager.gd" id="1_tkttx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dbb5w"]
+radius = 100.0
+
+[node name="Fight" type="Node"]
+script = ExtResource("1_tkttx")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightTeam" type="VBoxContainer" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="LeftTeam" type="VBoxContainer" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Hand" type="HBoxContainer" parent="UILayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -50
+
+[node name="card" parent="UILayer/UI/Hand" instance=ExtResource("1_khwc4")]
+layout_mode = 2
+
+[node name="card2" parent="UILayer/UI/Hand" instance=ExtResource("1_khwc4")]
+layout_mode = 2
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="FightArena" type="Node3D" parent="."]
+
+[node name="PhysicalArena" type="StaticBody3D" parent="FightArena"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FightArena/PhysicalArena"]
+shape = SubResource("CylinderShape3D_dbb5w")
+
+[node name="Visual Arena Marker" type="Marker3D" parent="FightArena/PhysicalArena"]
+script = ExtResource("1_oihgf")
+
+[node name="Camera3D" type="Camera3D" parent="FightArena/PhysicalArena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+current = true
+
+[connection signal="new_phase" from="." to="." method="load_phase"]

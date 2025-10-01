@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="healthbar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.1228082"
+     inkscape:cx="227.55444"
+     inkscape:cy="241.80443"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="g9"
+     inkscape:label="BarHealth copy"
+     style="display:inline">
+    <path
+       style="fill:#545454;fill-opacity:1;stroke:none;stroke-width:2"
+       d="M 168.77736,161.22017 C 379.70814,183.34118 290.24068,70.663588 362.74539,39.675277 406.00279,21.187183 454.52665,40.367278 481.77122,51.640833 244.33491,97.126026 512,141.48694 178.22386,244.34932 Z"
+       id="path9"
+       sodipodi:nodetypes="csccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="BarHealth"
+     style="display:inline">
+    <path
+       style="fill:#e21e2e;fill-opacity:1;stroke:none;stroke-width:2"
+       d="M 168.77736,161.22017 C 379.70814,183.34118 290.24068,70.663588 362.74539,39.675277 406.00279,21.187183 454.52665,40.367278 481.77122,51.640833 244.33491,97.126026 512,141.48694 178.22386,244.34932 Z"
+       id="path4"
+       sodipodi:nodetypes="csccc" />
+  </g>
+  <g
+     inkscape:label="ShrinkHealth copy"
+     inkscape:groupmode="layer"
+     id="g8"
+     style="display:inline">
+    <circle
+       style="fill:#545454;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       id="circle7"
+       cx="178.22386"
+       cy="216.00984"
+       r="136.02953" />
+    <path
+       d="M 185.46687,87.575384 A 129.1021,129.1021 0 0 0 151.87116,90.251165 129.1021,129.1021 0 0 0 56.013744,176.73164 129.1021,129.1021 0 0 0 82.98054,302.9875 c 10e-7,0 -47.430154,-98.59176 23.59179,-163.31836 71.02195,-64.726612 168.1211,-9.64258 168.1211,-9.64258 A 129.1021,129.1021 0 0 0 185.46687,87.575384 Z"
+       style="fill:#737373;fill-opacity:1;stroke:none"
+       id="path8" />
+    <circle
+       style="fill:#cecece;fill-opacity:1;stroke:none;stroke-width:2"
+       id="circle8"
+       cx="115.24724"
+       cy="139.17834"
+       r="28.96925" />
+  </g>
+  <g
+     inkscape:label="ShrinkHealth"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <circle
+       style="fill:#e21e2e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="178.22386"
+       cy="216.00984"
+       r="136.02953" />
+    <path
+       d="M 185.46687,87.575384 A 129.1021,129.1021 0 0 0 151.87116,90.251165 129.1021,129.1021 0 0 0 56.013744,176.73164 129.1021,129.1021 0 0 0 82.98054,302.9875 c 10e-7,0 -47.430154,-98.59176 23.59179,-163.31836 71.02195,-64.726612 168.1211,-9.64258 168.1211,-9.64258 A 129.1021,129.1021 0 0 0 185.46687,87.575384 Z"
+       style="fill:#e795a9;fill-opacity:1;stroke:none"
+       id="path7" />
+    <circle
+       style="fill:#f9f5f7;fill-opacity:1;stroke:none;stroke-width:2"
+       id="path3"
+       cx="115.24724"
+       cy="139.17834"
+       r="28.96925" />
+  </g>
+</svg>

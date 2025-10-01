@@ -1,31 +1,48 @@
-[gd_scene format=3 uid="uid://cioyi3bb6negq"]
+[gd_scene load_steps=2 format=3 uid="uid://cioyi3bb6negq"]
 
-[node name="SaveMenu" type="CanvasLayer"]
-follow_viewport_enabled = true
+[ext_resource type="Script" uid="uid://bjbwdaw4ip0qx" path="res://menu/save/save menu.gd" id="1_px65i"]
 
-[node name="Panel" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(230, 0)
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_right = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SaveMenu" type="PanelContainer" node_paths=PackedStringArray("text_node", "save_button", "load_button")]
+script = ExtResource("1_px65i")
+text_node = NodePath("C/SaveName")
+save_button = NodePath("C/H/Save")
+load_button = NodePath("C/H/Load")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="C" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="H" type="HBoxContainer" parent="C"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="Save" type="Button" parent="C/H"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"GBU"
 disabled = true
-text = "Create new save"
+text = "Save"
 
-[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="Load" type="Button" parent="C/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"GBU"
+disabled = true
+text = "Load"
+
+[node name="SaveName" type="LineEdit" parent="C"]
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 placeholder_text = "Enter name here..."
+
+[node name="SC" type="ScrollContainer" parent="C"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 4
+
+[node name="C" type="VBoxContainer" parent="C/SC"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="C/H/Save" to="." method="save_data"]
+[connection signal="pressed" from="C/H/Load" to="." method="load_data"]
+[connection signal="text_submitted" from="C/SaveName" to="." method="_on_text_edit_text_set"]

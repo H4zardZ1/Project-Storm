@@ -1,3 +1,31 @@
-[gd_resource type="Theme" format=3 uid="uid://cvqssq8wauvde"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvqssq8wauvde"]
+
+[ext_resource type="FontFile" uid="uid://bwc3xd825ldx2" path="res://menu/style/Inconsolata-VariableFont_wdth,wght.ttf" id="1_qpqdv"]
+[ext_resource type="StyleBox" uid="uid://cetwjxma33np1" path="res://menu/style/new_style_box_flat.tres" id="1_tmwoi"]
+[ext_resource type="StyleBox" uid="uid://s30mdt28up6a" path="res://menu/style/gbu target.tres" id="2_g1qiu"]
+[ext_resource type="StyleBox" uid="uid://doq5wpnfh2mr4" path="res://menu/style/new_style_box_line.tres" id="3_6ndvd"]
+[ext_resource type="StyleBox" uid="uid://crr3akfku6y1r" path="res://menu/style/gbu pressed.tres" id="3_de0sv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de0sv"]
+bg_color = Color(0.1008, 0.21, 0.042, 1)
 
 [resource]
+Button/constants/outline_size = 2
+Button/fonts/font = ExtResource("1_qpqdv")
+GBU/base_type = &"Button"
+GBU/styles/focus = ExtResource("2_g1qiu")
+GBU/styles/hover = ExtResource("2_g1qiu")
+GBU/styles/hover_pressed = ExtResource("3_de0sv")
+GBU/styles/normal = SubResource("StyleBoxFlat_de0sv")
+GBU/styles/pressed = ExtResource("3_de0sv")
+Label/constants/outline_size = 3
+Label/fonts/font = ExtResource("1_qpqdv")
+Panel/styles/panel = ExtResource("1_tmwoi")
+PanelContainer/styles/panel = ExtResource("1_tmwoi")
+RichTextLabel/constants/outline_size = 3
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_qpqdv")
+StartUI/base_type = &"Button"
+StartUI/font_sizes/font_size = 32
+TextEdit/fonts/font = ExtResource("1_qpqdv")
+VSeparator/styles/separator = ExtResource("3_6ndvd")

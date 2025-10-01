@@ -1,54 +1,45 @@
 extends PanelContainer
 
-@export_node_path("Label", "RichTextLabel") var cost_label_path: NodePath
-var cost_label: Node:
-	set(value):
-		cost_label = value
-	get:
-		if not is_instance_valid(cost_label):
-			cost_label = get_node(cost_label_path)
-		return cost_label
+signal picked()
 
-@export_node_path("Label", "RichTextLabel") var card_name_label_path: NodePath
-var card_name_label: Node:
-	set(value):
-		card_name_label = value
-	get:
-		if not is_instance_valid(card_name_label):
-			card_name_label = get_node(card_name_label_path)
-		return card_name_label
+@export var cost_label: Label
+@export var card_name_label: Label
+@export var card_speed_label: Label
+@export var card_text_label: RichTextLabel
 
-@export_node_path("Label", "RichTextLabel") var card_text_label_path: NodePath
-var card_text_label: Node:
-	set(value):
-		card_text_label = value
-	get:
-		if not is_instance_valid(card_text_label):
-			card_text_label = get_node(card_text_label_path)
-		return card_text_label
-
-@export_file("*.tscn") var die_display_path: String
+@export var die_display_scene: PackedScene = null
 @onready var die_display_container: BoxContainer = $VBoxContainer
-var displayed_action_stats : ActionStats
+var displayed_action : Action
 
 func _ready():
-	cost_label.text = displayed_action_stats.play_point_cost
-	card_name_label.text = displayed_action_stats.display_name
-	card_text_label.text = displayed_action_stats.passive_text
+	cost_label.text = var_to_str(displayed_action.play_point_cost)
+	card_name_label.text = displayed_action.display_name
+	card_text_label.text = displayed_action.passive_text
+	card_speed_label.text = var_to_str(displayed_action.speed_cost)
 
-	var die_display_scene_file: PackedScene = load(die_display_path)
-	if not is_instance_valid(die_display_scene_file):
-		assert(false, "file at '{path}' not a valid PackedScene".format({"path": die_display_path}))
+	if not is_instance_valid(die_display_scene):
+		assert(false, "file at '{0}' not a valid PackedScene".format([die_display_container.scene_file_path]))
 		return
-	if not die_display_scene_file.can_instantiate():
-		assert(false, "cannot instantiate PackedScene at '{path}'".format({"path": die_display_path}))
+	if not die_display_scene.can_instantiate():
+		assert(false, "cannot instantiate PackedScene at '{0}'".format([die_display_container.scene_file_path]))
 		return
 
-	for die in displayed_action_stats.action_dice:
-		var die_display: Node = die_display_scene_file.instantiate()
+	for die in displayed_action.action_dice:
+		var die_display: Node = die_display_scene.instantiate()
 		die_display.displayed_die_stats = die
 		die_display_container.add_child(die_display)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-	#pass
+
+
+func _get_drag_data(_at_position: Vector2) -> Action:
+	return displayed_action
+
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return data.is_same(displayed_action)
+
+func _drop_data(_at_position: Vector2, _data: Variant) -> void:
+	picked.emit()
+
+

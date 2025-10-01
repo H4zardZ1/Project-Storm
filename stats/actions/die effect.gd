@@ -8,11 +8,13 @@ class_name ActionDieEffect
 func _init():
 	pass
 
+## Connects this Effect in particular to the [param applied_to].
 func connect_die(applied_to: ActionDie):
 	# TODO: everything
+	applied_to.about_to_roll.connect(_on_roll)
 	_additional_connect_die(applied_to)
 
-## Override this function if you need additional connections with the resourced die.
+## Override this function if you need additional connections with the die.
 func _additional_connect_die(_applied_to: ActionDie):
 	pass
 # functions

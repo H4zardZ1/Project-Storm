@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://q853y2xmd3wh"]
+
+[ext_resource type="Script" uid="uid://cc3msi4deisgl" path="res://common/text modal.gd" id="1_een72"]
+[ext_resource type="FontFile" uid="uid://d4fr7b6dffpe4" path="res://menu/style/Alice-Regular.ttf" id="2_qq53o"]
+
+[node name="TextModal" type="Control" node_paths=PackedStringArray("title_node", "content_node")]
+z_index = 100
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 74.0
+script = ExtResource("1_een72")
+title_node = NodePath("V/T/T/Title")
+content_node = NodePath("V/C/T/Content")
+
+[node name="V" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 74.0
+theme_override_constants/separation = -8
+
+[node name="T" type="MarginContainer" parent="V"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_right = 30
+
+[node name="Panel" type="Panel" parent="V/T"]
+layout_mode = 2
+
+[node name="T" type="MarginContainer" parent="V/T"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = 6
+
+[node name="Title" type="RichTextLabel" parent="V/T/T"]
+z_index = 1
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_qq53o")
+theme_override_font_sizes/normal_font_size = 30
+text = "EX-4"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="C" type="PanelContainer" parent="V"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="T" type="MarginContainer" parent="V/C"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Content" type="RichTextLabel" parent="V/C/T"]
+layout_mode = 2
+text = "From the past I hail, for the future I hope."
+fit_content = true
+scroll_active = false

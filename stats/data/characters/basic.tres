@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://eyb00pb0ko51"]
+
+[ext_resource type="Script" uid="uid://p3y460p5kswi" path="res://stats/characters/character stats resource.gd" id="1_p47fg"]
+
+[resource]
+script = ExtResource("1_p47fg")
+character_name = "GENERIC_COMBATANT"
+max_health = 100
+max_mental = 100
+max_guard = 40
+attack_factor = 3
+defense_factor = 1
+speed = 10
+max_play_points_each_level = Array[int]([5, 5, 5, 5, 5, 5])
+card_tags = Array[String]([])
+extra_passive_num = 0
+character_3d_body_type = ""
+metadata/_custom_type_script = "uid://p3y460p5kswi"

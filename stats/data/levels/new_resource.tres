@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CombatLevel" load_steps=3 format=3 uid="uid://ba0vo0qa5ptn4"]
+
+[ext_resource type="Script" uid="uid://167rkatah0bm" path="res://stats/levels/levelphase.gd" id="1_c16gf"]
+[ext_resource type="Script" uid="uid://bxblcdjoiusip" path="res://stats/levels/levels.gd" id="2_0bbo4"]
+
+[resource]
+script = ExtResource("2_0bbo4")
+phases = Array[ExtResource("1_c16gf")]([])
+metadata/_custom_type_script = "uid://bxblcdjoiusip"

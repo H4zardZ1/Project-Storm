@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dxh7vgmly2ifk"
+
+[deps]
+
+files=["res://textcontent/redde cards.en.translation"]
+
+source_file="res://textcontent/redde cards.csv"
+dest_files=["res://textcontent/redde cards.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

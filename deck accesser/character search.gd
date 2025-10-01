@@ -8,9 +8,8 @@ const SORT_TYPES = [
 var character_button: PackedScene:
 	get:
 		return load(character_button_file)
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#pass # Replace with function body.
+
+
 @onready var grid: FlowContainer = $VC/SC/HFlowContainer
 @onready var sort_option: OptionButton = $VC/SortOptions
 var sort_option_cached: int
@@ -59,10 +58,7 @@ func sort_and_filter_characters():
 		# (must be tested first)
 		# If ascending is enabled, that means the opposite.
 		_: # Any of the SORT_TYPES 
-			if sort_option.selected > SORT_TYPES.size():
-				# Do nothing
-				pass
-			else:
+			if sort_option.selected <= SORT_TYPES.size():
 				var to_sort = SORT_TYPES[sort_option.selected - 1]
 				children_copy.sort_custom(
 					(func(a, b): 

@@ -12,15 +12,20 @@ config_version=5
 
 config/name="Project Storm"
 run/main_scene="res://menu/start/start menu.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.00784314, 0.00784314, 0.00784314, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-LoadingScene="*res://data/loading scene.tscn"
-PlayerData="*res://data/player data.tscn"
-CardsData="*res://data/cards data.tscn"
+LoadingScene="*res://data handler/loading scene.tscn"
+PlayerData="*res://data handler/player data.tscn"
+CardsData="*res://data handler/cards data.tscn"
+TextModalServer="*res://common/text modal server.tscn"
+
+[gui]
+
+theme/custom="uid://cvqssq8wauvde"
 
 [rendering]
 

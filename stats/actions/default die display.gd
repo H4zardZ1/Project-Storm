@@ -5,20 +5,19 @@ extends HBoxContainer
 
 
 var displayed_die_stats: ActionDie
-@onready var speed_label: Label = $SpeedCost
-@onready var roll_label: Label = $RollRange
-@onready var die_text_label: Label = $DieText
-@onready var attack: TextureRect = $AttackType
-@onready var projectile: TextureRect = $ProjectileType
-@onready var defense: TextureRect = $DefenseType
-@onready var movement: TextureRect = $MovementType
+@export var speed_label: RichTextLabel
+@export var roll_label: RichTextLabel
+@export var die_text_label: RichTextLabel
+@export var attack: TextureRect
+@export var projectile: TextureRect
+@export var defense: TextureRect
+@export var movement: TextureRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed_label.text = str(displayed_die_stats.speed_cost)
 
-	var roll_text : String = "{roll1} - {roll2}".format(
-		{"roll1": displayed_die_stats.roll_value_1,
-		"roll2": displayed_die_stats.roll_value_2}
+	var roll_text : String = "{0} ~ {1}".format(
+		[displayed_die_stats.roll_value_1, displayed_die_stats.roll_value_2]
 	)
 	roll_label.text = roll_text
 

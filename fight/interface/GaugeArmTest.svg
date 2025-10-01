@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+	<title>New Project</title>
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: #c20227 } 
+	</style>
+	<path id="Layer 1" class="s0" d="m60 5l-7.9 83h22.8l-7.9-83"/>
+	<path id="Layer 2" fill-rule="evenodd" class="s1" d="m63 111c-11.1 0-20-8.9-20-20 0-11.1 8.9-20 20-20 11.1 0 20 8.9 20 20 0 11.1-8.9 20-20 20z"/>
+</svg>

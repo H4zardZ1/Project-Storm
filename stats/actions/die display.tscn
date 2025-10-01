@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwkol3u3uph1i"]
+[gd_scene load_steps=6 format=3 uid="uid://dwkol3u3uph1i"]
 
 [ext_resource type="Script" uid="uid://cq7sje3uqa4aw" path="res://stats/actions/default die display.gd" id="1_1a2uj"]
 [ext_resource type="Texture2D" uid="uid://ckbqr1my8gskc" path="res://stats/actions/attack type.svg" id="2_d6vkw"]
@@ -6,40 +6,65 @@
 [ext_resource type="Texture2D" uid="uid://cwk1y7tg8kwnr" path="res://stats/actions/defense type.svg" id="4_70y8j"]
 [ext_resource type="Texture2D" uid="uid://cllcnssy5mstt" path="res://stats/actions/movement type.svg" id="5_v1uxk"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_wobvh"]
-font_color = Color(0.615686, 1, 0.4, 1)
-
-[node name="DieDisplay" type="HBoxContainer"]
+[node name="DieDisplay" type="HBoxContainer" node_paths=PackedStringArray("speed_label", "roll_label", "die_text_label", "attack", "projectile", "defense", "movement")]
+custom_minimum_size = Vector2(250, 25)
+offset_right = 250.0
+offset_bottom = 18.0
 script = ExtResource("1_1a2uj")
+speed_label = NodePath("SpeedCost")
+roll_label = NodePath("RollRange")
+die_text_label = NodePath("DieText")
+attack = NodePath("AttackType")
+projectile = NodePath("ProjectileType")
+defense = NodePath("DefenseType")
+movement = NodePath("MovementType")
 
-[node name="SpeedCost" type="Label" parent="."]
+[node name="SpeedCost" type="RichTextLabel" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.698039, 1, 0.584314, 1)
+theme_override_font_sizes/normal_font_size = 16
 text = "2"
-label_settings = SubResource("LabelSettings_wobvh")
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="AttackType" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("2_d6vkw")
+stretch_mode = 5
 
 [node name="ProjectileType" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("3_iqrht")
+stretch_mode = 5
 
 [node name="DefenseType" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("4_70y8j")
+stretch_mode = 5
 
 [node name="MovementType" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("5_v1uxk")
+stretch_mode = 5
 
-[node name="RollRange" type="Label" parent="."]
+[node name="RollRange" type="RichTextLabel" parent="."]
 layout_mode = 2
-text = "25 - 42"
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 16
+text = "25~42"
+fit_content = true
+autowrap_mode = 0
 
-[node name="VSeparator" type="VSeparator" parent="."]
+[node name="DieText" type="RichTextLabel" parent="."]
 layout_mode = 2
-
-[node name="DieText" type="Label" parent="."]
-layout_mode = 2
-text = "Die text"
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+text = "not exactly a good thing probably"
+fit_content = true
+scroll_active = false

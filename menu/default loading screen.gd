@@ -2,14 +2,8 @@ extends CanvasLayer
 
 signal player_animation_finished
 
-@export_node_path("Range") var progress_bar_path: NodePath
-var progress_bar: Range:
-	set(value):
-		progress_bar = value
-	get:
-		if not is_instance_valid(progress_bar):
-			progress_bar = get_node(progress_bar_path)
-		return progress_bar
+
+@export var progress_bar: Range
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

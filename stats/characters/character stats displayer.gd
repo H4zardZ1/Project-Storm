@@ -14,7 +14,7 @@ func _ready():
 	name_label.text = stats_to_display.character_name
 	for stat in DISPLAYED_STATS:
 		var stat_row := packed_stat_row.instantiate()
-		stat_row.left_text = stat_starfix + stat.capitalize()
+		stat_row.left_text = tr(stat_starfix + stat.capitalize())
 		stat_row.right_text = str(stats_to_display[stat])
 		add_child(stat_row)
 	

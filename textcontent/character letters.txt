@@ -1,0 +1,9 @@
+keys,en
+CHARACTER_REDDE,"Redde"
+CHARACTER_REDDE_FULL,"Redde Alkali Jenkins"
+CHARACTER_RATH,"Rathovos"
+CHARACTER_RATH_FULL,"Rathovos Archaelaris"
+CHARACTER_KIPH,"Kiph Tarakis"
+CHARACTER_KIPH_FULL,"Kiph Tarakis"
+CHARACTER_ANYA,"Anya"
+CHARACTER_ANYA_FULL,"Anya Derellia"

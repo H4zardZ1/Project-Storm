@@ -2,7 +2,8 @@ extends Resource
 class_name ActionStats
 ## A class to store the data of a card.
 ##
-## This class stores data that are relevant for this game's cards.
+## This class stores data that are relevant for this game's cards.[br]
+## [b]Note[/b]: The "Local to Scene" setting will mostly be ignored for this class. See [Action]
 
 # variables
 @export var display_name = ""
@@ -13,10 +14,10 @@ class_name ActionStats
 ## and the first die roll(if there is indeed a die).
 @export var speed_cost: int = 0
 ## Exclusives: String tags. Strings directly in the array is OR for all strings.
-## "-<text>" will make it instead available for anyone to use but <text>.
-@export var exclusive: Array = []
+## "-[lb]text[rb]" will make it instead available for anyone to use but [lb]text[rb].
+@export var exclusive: Array[String] = []
 # Passives. 
-#var passives: Array = [] # first, figure out the name of this Object
+var passives: Array[ActionEffect] = [] 
 var passive_text: String = ""
 
 # TO DO: Visuals on the action itself will be triggered before dice visuals.
@@ -29,26 +30,9 @@ var passive_text: String = ""
 ## A card does not necessarily contain dice.
 @export var action_dice: Array[ActionDieStats] = []
 
-# init
-func _init():
-	pass
+# # init
+# func _init():
+# 	pass
 
 # functions
 
-#func on_use():
-	#pass
-#
-#func after_use():
-	#pass
-#
-#func on_roll():
-	#pass
-#
-#func on_clash():
-	#pass
-#
-#func on_move(_arg: String = ""):
-	#pass
-#
-#func on_draw():
-	#pass

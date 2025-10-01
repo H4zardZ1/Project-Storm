@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dismairyoxar8"
+
+[deps]
+
+files=["res://textcontent/generic ui info.en.translation"]
+
+source_file="res://textcontent/generic ui info.csv"
+dest_files=["res://textcontent/generic ui info.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

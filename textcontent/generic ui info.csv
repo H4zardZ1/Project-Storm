@@ -1,0 +1,6 @@
+keys,en
+DATE_FORMAT,"{year}-{month}-{day}, {hour}:{minute}:{second}"
+SAVEFILE_TIME_FORMAT,"{name} {hour}:{minute}:{second}"
+ENTER_NAME_PLACEHOLDER,"Enter save name..."
+SAVEFILE_DESCRIPTION_ERROR,"During loading savefiles (currently located at '{0}'),the following error(s) have occured:\n{1}"
+SAVEFILE_SPECIFIC_ERROR,"error '{0}' occured at '{1}'"
