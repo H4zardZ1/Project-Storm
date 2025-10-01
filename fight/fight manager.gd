@@ -395,7 +395,7 @@ func combatant_die(who: FightCombatant):
 	who.died.emit()
 	combatants.erase(who)
 
-# A safer way of removing [param who]. Kills [param who] if it is still in the game, and then queues it for deletion.
+## A safer way of removing [param who]. Kills [param who] if it is still in the game, and then queues it for deletion.
 func combatant_remove(who: FightCombatant):
 	if who in combatants:
 		combatant_die(who)

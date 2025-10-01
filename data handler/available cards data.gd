@@ -112,14 +112,14 @@ func parse_available_characters() -> Array[CharacterStats]:
 
 # functions
 
-func redeem_cards(cards: Array[ActionStats], mod_id: String = ""):
-	for card_to_redeem in cards:
-		if mod_id:
-			if card_to_redeem not in other_available_cards:
-				other_available_cards[mod_id].append(card_to_redeem)
-		else:
-			if card_to_redeem not in local_available_cards:
-				local_available_cards.append(card_to_redeem)
+# func redeem_cards(cards: Array[ActionStats], mod_id: String = ""):
+# 	for card_to_redeem in cards:
+# 		if mod_id:
+# 			if card_to_redeem not in other_available_cards:
+# 				other_available_cards[mod_id].append(card_to_redeem)
+# 		else:
+# 			if card_to_redeem not in local_available_cards:
+# 				local_available_cards.append(card_to_redeem)
 
 # func save_file():
 # 	var file := FileAccess.open("user://player/{0}/available.dat".format([PlayerData.save_name]), FileAccess.WRITE)

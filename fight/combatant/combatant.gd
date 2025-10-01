@@ -54,6 +54,8 @@ var current_emotion_limit: int:
 var excess_type: int = ExcessEmotionLimitType.LAST
 var combatant_name: String
 
+var pending_
+
 var damage_bonuses: Dictionary[int, Array] = {}
 
 var team: int

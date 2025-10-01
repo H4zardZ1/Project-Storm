@@ -83,6 +83,17 @@ func change_combatant_index(i: int, new_combatant: CharacterStats):
 #func _ready():
 	#pass # Replace with function body.
 
+# func redeem_cards(cards: Array[ActionStats], mod_id: String = ""):
+# 	for card_to_redeem in cards:
+# 		if mod_id:
+# 			if card_to_redeem not in other_available_cards:
+#				pending_show_redeemed_cards.append(card_to_redeem)
+# 				other_available_cards[mod_id].append(card_to_redeem)
+# 		else:
+# 			if card_to_redeem not in local_available_cards:
+#				pending_show_redeemed_cards.append(card_to_redeem)
+# 				local_available_cards.append(card_to_redeem)
+
 func save_data():
 	if FileAccess.file_exists(PLAYER_SAVE_PATH.format([save_name])):
 		DirAccess.copy_absolute(PLAYER_SAVE_PATH.format([save_name]), BACKUP_SAVE_PATH.format([save_name]))
@@ -109,7 +120,7 @@ func save_data():
 	# The reason why there IS a resource in the first place is because it can be loaded from disk easily
 	# Which means that there is a path that points to the resource file itself.
 	# Unfortunately if the path changes the saved resource would be lost.
-	# This is not... exactly ideal.
+	# This is not exactly ideal.
 	# UIDs are not completely exposed yet as of 4.5
 
 	var available_cards := { 
