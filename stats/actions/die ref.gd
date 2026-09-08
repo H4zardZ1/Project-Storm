@@ -1,13 +1,15 @@
 extends RefCounted
-class_name 	ActionDie
+class_name ActionDie
 
+#region FightManager signals
+# these signals are technically emitted not here, but instead mostly by FightManager
+# still, it's here so that various functionalities don't have to listen in to FightManager for things that require only die-related signals
+# (e.g. "On Roll: 'foo'")
 signal about_to_roll()
-# Since Resource inherits RefCounted, and this also inherits RefCounted, the last common ancestor is RefCounted.
-# WARNING: The plain copy may be a Resource that is used in a lot of scenes(and they may or may not be exclusive to scenes
-# since this method is used to bypass Resource settings).
-#var plain_copy: RefCounted
+signal rolled(value: int)
+#endregion
 
-const COPY_PROPERTIES = ["basic_types", "move_direction", "roll_value_1", "roll_value_2", "speed_cost", "passive", "passive_text",
+const COPY_PROPERTIES: PackedStringArray = ["basic_types", "move_direction", "roll_value_1", "roll_value_2", "speed_cost", "passive", "passive_text",
 "cinematics", "character_movement"]
 
 var basic_types: int = 0
@@ -27,7 +29,7 @@ var character_movement = ""
 ## You can bypass this and edit the die itself(Plain stat changes).
 var buff: Array = []
 
-# Can accept dict and Obj
+# Can accept dict, obj, nil
 func _init(v = null) -> void:
 	match typeof(v):
 		TYPE_DICTIONARY:
@@ -35,9 +37,10 @@ func _init(v = null) -> void:
 		TYPE_OBJECT:
 			init_obj(v)
 		TYPE_NIL:
-			print("Die ready to be edited.")
+			# print("Die ready to be edited.")
+			pass
 		_:
-			push_error("Cannot process variant '{0}' of type '{1}'.(The constructor should be able to accept creating new objects from null (i.e. no variables))".format([v, typeof(v)]))
+			push_warning("Cannot process variant '{0}' of type '{1}'.(The constructor should be able to accept creating new objects from null (i.e. no variables))".format([v, typeof(v)]))
 	return
 
 func init_dict(d: Dictionary) -> void:
@@ -64,7 +67,7 @@ func init_dict(d: Dictionary) -> void:
 	return
 
 func init_obj(o: Object) -> void:
-	var err_p := []
+	var err_p : Array[String] = []
 	for prop in COPY_PROPERTIES:
 		if (prop in o) and (prop in self):
 			if prop == "passive":
@@ -95,7 +98,12 @@ func add_passive(p: ActionDieEffect):
 	p.connect_die(self)
 	passive.append(p)
 
-func roll() -> int:
+func roll(rng: RandomNumberGenerator = null) -> int:
 	about_to_roll.emit()
-	var result: int = randi_range(roll_value_1, roll_value_2)
+	var result: int
+	if is_instance_valid(rng):
+		result = rng.randi_range(roll_value_1, roll_value_2)
+	else:
+		result = randi_range(roll_value_1, roll_value_2)
+	rolled.emit()
 	return result

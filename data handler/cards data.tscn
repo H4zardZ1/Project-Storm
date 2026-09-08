@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ydelbg5jktq"]
-
-[ext_resource type="Script" uid="uid://qcscl0w6nllj" path="res://data handler/available cards data.gd" id="1_3dq73"]
-
-[node name="CardsData" type="Node"]
-script = ExtResource("1_3dq73")

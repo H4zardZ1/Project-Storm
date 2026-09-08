@@ -1,5 +1,8 @@
 extends FightClashable
 class_name FightCombatant
+## A node that represents a fight-combatant.
+##
+## A node that represents a fight-combatant.
 
 #region FightManager Signals
 # these signals are technically emitted not here, but instead mostly by FightManager
@@ -7,13 +10,13 @@ class_name FightCombatant
 # (e.g. "This Combatant: When Hit: 'foo'")
 @warning_ignore_start("unused_signal")
 ## Emitted when a [FightClashable] has hit this combatant BEFORE they are damaged.
-## This is emitted AFTER the by's [signal pending_attack_successful]
-signal hit(by)
+## This is emitted AFTER the by's [signal pending_attack_successful].
+signal hit(by: FightClashable)
 ## Emitted after this combatant takes damage.
-## If this is caused by a [FightClashable], this is emitted before their [signal attack_injured].
-signal damaged(amount: int)
-## Emitted when a Fightclashable has hit and damaged this combatant. This is emitted after by's [signal attack_injured] (this means that this is emitted after [signal damaged])
-signal hit_damaged(by: FightClashable, amount: int)
+## If this is caused by a [FightClashable], this is emitted before their [signal damaged].
+signal took_damage(amount: int)
+## Emitted when a FightClashable has hit and damaged this combatant. This is emitted after by's [signal damaged] (this means that this is emitted after [signal took_damage])
+signal hit_took_damage(by: FightClashable, amount: int)
 ## Emitted when this combatant dies from any reason (reached 0 health, Level Phase trigger, etc...)
 signal died()
 @warning_ignore_restore("unused_signal")
@@ -48,17 +51,21 @@ var emo: int = 0
 var emotion_limit: Array[int] = [3, 4, 5, 6, 7]
 var current_emotion_limit: int:
 	get:
-		if level == max_play_points.size():
+		if level >= max_play_points.size():
 			return -1
 		return emotion_limit[level - 1]
 var excess_type: int = ExcessEmotionLimitType.LAST
 var combatant_name: String
 
-var pending_
-
-var damage_bonuses: Dictionary[int, Array] = {}
+var pending_dice: Array[ActionDie] = []
+var received_damage_bonuses: Dictionary[int, Array] = {}
 
 var team: int
+
+# We need to override!
+# func can_clash() -> bool:
+# 	return super.can_clash() or is_instance_valid(standby_dice[0])
+	
 
 # func play_action(action: Action, targets: Array[FightClashable]):
 	

@@ -1,6 +1,6 @@
 extends Control
 
-const SORT_TYPES = [
+const SORT_TYPES: Array[String] = [
 	"name",
 	"max_health",
 ]
@@ -19,15 +19,18 @@ var sort_descending: bool
 func _ready():
 	load_characters.call_deferred()
 
+var _dirty_warn_test_obj_invalid: bool = false
 func load_characters():
 	var test_obj: Node = character_button.instantiate()
 	if not test_obj.get_property_list().any(func(d): return d.name == "displayed_character_stats"):
 		# BAIL BAIL BAIL
-		assert(false, "Scene root node on file '{0}' does not have property 'displayed_character_stats'".format([character_button_file]))
+		assert(_dirty_warn_test_obj_invalid, "Scene root node on file '{0}' does not have property 'displayed_character_stats'\
+		The game will continue, but character search is disabled".format([character_button_file]))
+		_dirty_warn_test_obj_invalid = true
 		test_obj.free()
 		return
 	test_obj.free()
-	for o in CardsData.available_characters:
+	for o in PlayerData.available_characters:
 		var obj : Node = character_button.instantiate()
 		obj.displayed_character_stats = o
 		Signal(obj, "pressed").connect(Callable(PlayerData.add_characters_signal_ref).bind(o))
@@ -50,16 +53,15 @@ func sort_and_filter_characters():
 		return
 	
 	var need_sorting := false
-	match sort_option.selected:
-		0: # Standard.
-			pass
-		# If Descending is enabled... 
-		# that means the childen must be sorted as if it was the time it was created (e.g. it must match load_characters())
-		# (must be tested first)
-		# If ascending is enabled, that means the opposite.
+	match up_down_button.button_pressed:
+		0: # Standard. (Order of unlocked characters)
+			if not sort_descending:
+				children_copy.reverse()
+				need_sorting = true
+		
 		_: # Any of the SORT_TYPES 
 			if sort_option.selected <= SORT_TYPES.size():
-				var to_sort = SORT_TYPES[sort_option.selected - 1]
+				var to_sort: String = SORT_TYPES[sort_option.selected - 1]
 				children_copy.sort_custom(
 					(func(a, b): 
 						return (

@@ -4,15 +4,17 @@ var t: Tween = null
 var pending_timer: SceneTreeTimer = null
 @export var base_delay: float = 1.0
 @export var speed: float = 25.0
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	tween_reset.call_deferred()
-		
 
 func tween_reset():
 	var max_x := 0.0
 	for child in get_children():
-		maxf((child as Control).size.x, max_x)
+		if child is not Control:
+			continue
+		max_x = maxf((child as Control).size.x, max_x)
+		#max_x = maxf((child as Control).size.x + (child as Control).position.x, max_x)
 	var excess_len := max_x - size.x
 	if excess_len <= 0:
 		return
@@ -22,8 +24,8 @@ func tween_reset():
 		t.tween_property(self, "scroll_horizontal", 0, excess_len / speed).set_delay(base_delay)
 		t.set_loops()
 	elif scroll_horizontal > (excess_len - 1):
-		t.tween_property(self, "scroll_horizontal", excess_len, excess_len / speed).set_delay(base_delay)
 		t.tween_property(self, "scroll_horizontal", 0, excess_len / speed).set_delay(base_delay)
+		t.tween_property(self, "scroll_horizontal", excess_len, excess_len / speed).set_delay(base_delay)
 		t.set_loops()
 	# Scroll in the middle, go to the far side
 	elif scroll_horizontal < (excess_len / 2): # Left side
@@ -40,7 +42,6 @@ func disturbed():
 		return
 	t.kill()
 	if is_instance_valid(pending_timer):
-		# 
 		pending_timer.time_left = base_delay
 	else:
 		pending_timer = get_tree().create_timer(base_delay)

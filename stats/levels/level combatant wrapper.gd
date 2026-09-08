@@ -1,5 +1,8 @@
 extends Resource
 class_name LevelCharacterWrapper
+## A class that stores the data regarding a character in a level in the files.
+##
+## A class that stores the data regarding a character in a level in the files.
 
 @export var character: CharacterStats
 @export var team: int

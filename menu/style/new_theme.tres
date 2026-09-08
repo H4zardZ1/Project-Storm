@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvqssq8wauvde"]
+[gd_resource type="Theme" format=3 uid="uid://cvqssq8wauvde"]
 
 [ext_resource type="FontFile" uid="uid://bwc3xd825ldx2" path="res://menu/style/Inconsolata-VariableFont_wdth,wght.ttf" id="1_qpqdv"]
 [ext_resource type="StyleBox" uid="uid://cetwjxma33np1" path="res://menu/style/new_style_box_flat.tres" id="1_tmwoi"]
@@ -10,7 +10,9 @@
 bg_color = Color(0.1008, 0.21, 0.042, 1)
 
 [resource]
+default_font_size = 16
 Button/constants/outline_size = 2
+Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_qpqdv")
 GBU/base_type = &"Button"
 GBU/styles/focus = ExtResource("2_g1qiu")

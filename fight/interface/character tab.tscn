@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://q5h8o6k18lrw"]
+[gd_scene format=3 uid="uid://q5h8o6k18lrw"]
 
 [ext_resource type="Texture2D" uid="uid://cj3yyhb12be3c" path="res://fight/interface/new_gradient_texture_2d.tres" id="1_gtgq4"]
 [ext_resource type="Script" uid="uid://ctayw55kbryoe" path="res://fight/interface/character tab.gd" id="1_y02vg"]
 [ext_resource type="Script" uid="uid://o1ty8sl48ahb" path="res://common/arm range.gd" id="2_2c2nq"]
+[ext_resource type="StyleBox" uid="uid://c0bcxmk012umm" path="res://fight/interface/new_style_box_texture.tres" id="3_jxy0m"]
 [ext_resource type="Texture2D" uid="uid://c6ao7pyuns8pt" path="res://fight/interface/GaugeArmTest-2.svg" id="3_vuj0n"]
 [ext_resource type="Texture2D" uid="uid://cysi5xp8vqbki" path="res://deck accesser/plus.png" id="4_vuj0n"]
 
@@ -36,7 +37,8 @@ corner_detail = 10
 ambient_light_source = 2
 ambient_light_color = Color(0.0235294, 0.0745098, 0.172549, 1)
 
-[node name="CharacterTab" type="Control" node_paths=PackedStringArray("hp_node", "emo_node", "pp_text")]
+[node name="CharacterTab" type="Control" unique_id=691571092 node_paths=PackedStringArray("hp_node", "emo_node", "pp_text")]
+custom_minimum_size = Vector2(250, 85)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 200.0
@@ -46,7 +48,7 @@ hp_node = NodePath("HP")
 emo_node = NodePath("Level")
 pp_text = NodePath("PP")
 
-[node name="T" type="TextureRect" parent="."]
+[node name="TBorder" type="TextureRect" parent="." unique_id=1041957490]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +58,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_2c2nq")
 expand_mode = 1
 
-[node name="T" type="TextureRect" parent="T"]
+[node name="TInner" type="TextureRect" parent="TBorder" unique_id=478110910]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -70,12 +72,19 @@ grow_vertical = 2
 texture = ExtResource("1_gtgq4")
 expand_mode = 1
 
-[node name="HP" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 55.0
-offset_right = 195.0
-offset_bottom = 65.0
+[node name="HP" type="ProgressBar" parent="." unique_id=440770140]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -20.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_y02vg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k5m6j")
 max_value = 1.0
@@ -83,8 +92,22 @@ step = 0.0
 value = 0.2
 show_percentage = false
 
-[node name="Level" type="Range" parent="."]
-_import_path = NodePath("")
+[node name="LevelBorder" type="Panel" parent="." unique_id=814337565]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_jxy0m")
+
+[node name="Level" type="Range" parent="." unique_id=39204977]
 unique_name_in_owner = false
 process_mode = 0
 process_priority = 0
@@ -111,21 +134,22 @@ use_parent_material = false
 clip_contents = false
 custom_minimum_size = Vector2(0, 0)
 layout_direction = 0
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 106.0
-offset_top = 6.0
-offset_right = 146.0
-offset_bottom = 46.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 rotation = 0.0
 scale = Vector2(1, 1)
 pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
 size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.0
@@ -139,37 +163,50 @@ focus_neighbor_bottom = NodePath("")
 focus_next = NodePath("")
 focus_previous = NodePath("")
 focus_mode = 0
+focus_behavior_recursive = 0
 mouse_filter = 0
+mouse_behavior_recursive = 0
 mouse_force_pass_scroll_events = true
 mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
 theme = null
 theme_type_variation = &""
 min_value = 0.0
 max_value = 100.0
 step = 1.0
 page = 0.0
-value = 2.0
+value = 100.0
 exp_edit = false
 rounded = false
 allow_greater = false
 allow_lesser = false
 script = ExtResource("2_2c2nq")
-max_angle = 0.0
-min_angle = 0.4
+max_angle = 60.0
+min_angle = 120.0
 arm_texture = ExtResource("3_vuj0n")
 arm_center = Vector2(10, 14)
 metadata/_custom_type_script = "uid://o1ty8sl48ahb"
 
-[node name="PP" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 50.0
-offset_right = 186.0
-offset_bottom = 67.0
+[node name="PP" type="RichTextLabel" parent="." unique_id=2065310822]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -27.0
+offset_right = -10.0
+offset_bottom = -10.0
 text = "2/15"
 scroll_active = false
 
-[node name="PFC" type="TextureRect" parent="."]
+[node name="PFC" type="TextureRect" parent="." unique_id=86247785]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -179,40 +216,51 @@ texture = ExtResource("4_vuj0n")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Control" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 7.0
-offset_right = 190.0
-offset_bottom = 47.0
+[node name="MentalRangeBorder" type="Panel" parent="." unique_id=688005447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jxy0m")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 0
-offset_left = 153.0
-offset_top = 10.0
-offset_right = 187.0
-offset_bottom = 44.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MentalRangeBorder" unique_id=34659674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MentalRangeBorder/SubViewportContainer" unique_id=1532174205]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(34, 34)
 render_target_update_mode = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MentalRangeBorder/SubViewportContainer/SubViewport" unique_id=2030342364]
 mesh = SubResource("SphereMesh_y02vg")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="MentalRangeBorder/SubViewportContainer/SubViewport" unique_id=1307859224]
 transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 0, 0, 0.830386)
 environment = SubResource("Environment_jxy0m")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MentalRangeBorder/SubViewportContainer/SubViewport" unique_id=1967210060]
 transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0)
 directional_shadow_mode = 0
 sky_mode = 1
 
-[node name="N" type="RichTextLabel" parent="."]
+[node name="N" type="RichTextLabel" parent="." unique_id=1669697270]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 5.0

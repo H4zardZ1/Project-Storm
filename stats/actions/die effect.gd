@@ -14,7 +14,7 @@ func connect_die(applied_to: ActionDie):
 	applied_to.about_to_roll.connect(_on_roll)
 	_additional_connect_die(applied_to)
 
-## Override this function if you need additional connections with the die.
+## Virtual function. Override this if you need additional connections with the die.
 func _additional_connect_die(_applied_to: ActionDie):
 	pass
 # functions

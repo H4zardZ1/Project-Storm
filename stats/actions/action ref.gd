@@ -4,12 +4,15 @@ class_name Action
 ##
 ## A class to store the data of a card in-game.
 
-
-# WARNING: The plain copy may be a Resource that is used in a lot of scenes(and they may or may not be exclusive to scenes
-# since this method is used to bypass Resource settings).
-
+#region FightManager Signals
+# these signals are technically emitted not here, but instead mostly by FightManager
+# still, it's here so that various functionalities don't have to listen in to FightManager for things that require only action-related signals
+# (e.g. "On Use: 'foo'")
+@warning_ignore_start("unused_signal")
 signal about_to_use()
-
+signal used()
+@warning_ignore_restore("unused_signal")
+#endregion
 const COPY_PROPERTIES = ["play_point_cost", "speed_cost", "passive", "passive_text", "cinematics", "character_movement", "action_dice"]
 
 var play_point_cost: int = 0
@@ -82,8 +85,3 @@ func _perror_init_obj(accum, t):
         return accum + ", '{0}'".format([t])
     else:
         return "'{0}'".format([t])
-
-
-
-func use():
-    about_to_use.emit()

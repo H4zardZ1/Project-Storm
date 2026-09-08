@@ -4,13 +4,13 @@ class_name TextModal
 ##
 ## Windowless text modal.
 
-@export var enter_duration := 1.0
-@export var hover_in_duration := 1.8
-@export var hover_out_duration := 0.8
-@export var hover_depth := 0.2
-@export var vanish_duration := 1.0
-var is_stopping := true
-var title := "":
+@export var enter_duration: float = 1.0
+@export var hover_in_duration: float = 1.8
+@export var hover_out_duration: float = 0.8
+@export var hover_depth: float = 0.2
+@export var vanish_duration: float = 1.0
+var is_stopping: bool = true
+var title : String = "":
 	set(s):
 		title = s
 		_title_change.call_deferred()

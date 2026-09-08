@@ -16,7 +16,7 @@ var requests: Array[TextModalRequest] = []
 
 func create_modal(req: TextModalRequest) -> TextModal:
 	var o : TextModal = text_modal.instantiate()
-	if not o:
+	if not is_instance_valid(o):
 		assert(false, "Failed to instantiate text modal '{0}' at '{1}'.".format([text_modal, text_modal.resource_path]))
 		return null
 	o.title = req.title

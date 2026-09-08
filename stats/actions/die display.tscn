@@ -57,14 +57,13 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 16
-text = "25~42"
+text = "25 ~ 42"
 fit_content = true
 autowrap_mode = 0
 
 [node name="DieText" type="RichTextLabel" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 16
-text = "not exactly a good thing probably"
+text = "Not exactly a good thing probably"
 fit_content = true
 scroll_active = false

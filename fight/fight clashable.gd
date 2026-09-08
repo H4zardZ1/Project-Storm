@@ -1,5 +1,8 @@
 extends Node
 class_name FightClashable
+## A node that represents something that can clash with something else during the fight.
+##
+## A node that represents something that can clash with something else during the fight.
 
 # enums
 
@@ -11,10 +14,9 @@ enum ClashState {
 }
 
 # enum BonusOrder{
-# 	DICE,
-# 	CARD,
-# 	CLASHABLE,
-# 	FIELD
+# 	ADD,
+# 	MUL,
+# 	MISC
 # }
 
 # constants
@@ -26,7 +28,7 @@ enum ClashState {
 # still, it's here so that various functionalities don't have to listen in to FightManager for things that require only owner-related signals
 # (e.g. "This Combatant: Start of Clash: 'foo'")
 @warning_ignore_start("unused_signal")
-signal clash_target_added(to)
+signal clash_target_added(to: FightClashable)
 # ## Emitted if the node can't clash with something else.
 
 ## Emitted if and when the clash starts (didn't fail to respond).
@@ -39,16 +41,23 @@ signal clash_triggered(with: FightClashable, state: int)
 signal die_about_to_roll()
 signal die_rolled(nat_roll : int)
 ## Emitted when the Clashable has successfully attacked a character BEFORE they are damaged.
-signal pending_attack_successful(target: )
+signal pending_attack_successful(target: FightCombatant)
 ## Emitted when the Clashable has successfully attacked and damaged a character.
-signal attack_injured(target: FightCombatant, damage: int)
+signal damaged(target: FightCombatant, damage: int)
 @warning_ignore_restore("unused_signal")
 # signal-like Array[Callable]s
 #endregion
 
 
 # variables
-var ready_clash_die: ActionDie
+var standby_dice: Array[ActionDie] = []
+var ready_clash_die: ActionDie:
+	get:
+		if standby_dice.is_empty():
+			return
+		return standby_dice[0]
+	set(value):
+		standby_dice[0] = value
 var total_roll_value: int = 0
 
 var has_rolled: bool = false
@@ -56,10 +65,13 @@ var clash_targets: Array[FightClashable] = []
 var attack_factor: int
 var defense_factor: int
 ## A Dictionary that will be filled with either int or Array[int] values.
-var roll_value_bonuses: Dictionary = {
-	"speed_penalty": 0,
-	"flinch": 0
+var roll_value_bonuses: Dictionary[int, Dictionary] = {
+	0 : {
+		"speed_penalty": 0,
+		"flinch": 0,
+	},
 }
+
 
 ## How much "ticks" until this clashable fires(roughly)
 var speed_value: int = -1
@@ -71,7 +83,7 @@ var response_threshold: int = 4
 # functions
 
 func can_clash() -> bool:
-	return speed_value <= response_threshold and is_instance_valid(ready_clash_die)
+	return speed_value <= response_threshold and standby_dice.size()
 
 
 

@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0y17lppq3s42"]
+[gd_scene format=3 uid="uid://c0y17lppq3s42"]
 
 [ext_resource type="Script" uid="uid://crvafmigko0lb" path="res://fight/combatant/combatant.gd" id="1_6kmpn"]
 [ext_resource type="Script" uid="uid://n7hgowdynxos" path="res://fight/combatant/card manager.gd" id="2_d5xah"]
 [ext_resource type="Script" uid="uid://cygbr2q02i74l" path="res://stats/data/levels/default director.gd" id="3_jnly3"]
 
-[node name="FightCombatant" type="Node"]
+[node name="FightCombatant" type="Node" unique_id=1942929872]
 script = ExtResource("1_6kmpn")
 metadata/_custom_type_script = "uid://crvafmigko0lb"
 
-[node name="ActionManager" type="Node" parent="."]
+[node name="ActionManager" type="Node" parent="." unique_id=369909654]
 script = ExtResource("2_d5xah")
 metadata/_custom_type_script = "uid://n7hgowdynxos"
 
-[node name="CombatantDirector" type="Node" parent="."]
+[node name="CombatantDirector" type="Node" parent="." unique_id=837159121]
 script = ExtResource("3_jnly3")
 metadata/_custom_type_script = "uid://cygbr2q02i74l"

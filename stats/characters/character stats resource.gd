@@ -1,5 +1,9 @@
 extends Resource
 class_name CharacterStats
+## A class to store the data of a character in files.
+##
+## A class to store the data of a character in files.[br]
+## [b]Note[/b]: [member resource_local_to_scene] will mostly be ignored for this class. See [FightCombatant]
 
 
 #variables

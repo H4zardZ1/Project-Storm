@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhjcb8ofvqefb"]
+[gd_scene format=3 uid="uid://dhjcb8ofvqefb"]
 
 [ext_resource type="PackedScene" uid="uid://cbsr45t7ex7tm" path="res://stats/actions/card.tscn" id="1_khwc4"]
 [ext_resource type="Script" uid="uid://3gghn18ab7a5" path="res://fight/visual_arena_loader.gd" id="1_oihgf"]
@@ -7,12 +7,12 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dbb5w"]
 radius = 100.0
 
-[node name="Fight" type="Node"]
+[node name="Fight" type="Node" unique_id=164751016]
 script = ExtResource("1_tkttx")
 
-[node name="UILayer" type="CanvasLayer" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1981795159]
 
-[node name="UI" type="Control" parent="UILayer"]
+[node name="UI" type="Control" parent="UILayer" unique_id=1993770039]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RightTeam" type="VBoxContainer" parent="UILayer/UI"]
+[node name="RightTeam" type="VBoxContainer" parent="UILayer/UI" unique_id=1833979518]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -30,7 +30,7 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="LeftTeam" type="VBoxContainer" parent="UILayer/UI"]
+[node name="LeftTeam" type="VBoxContainer" parent="UILayer/UI" unique_id=2109294887]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -40,7 +40,7 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="Hand" type="HBoxContainer" parent="UILayer/UI"]
+[node name="Hand" type="HBoxContainer" parent="UILayer/UI" unique_id=1743996563]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -50,25 +50,25 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = -50
 
-[node name="card" parent="UILayer/UI/Hand" instance=ExtResource("1_khwc4")]
+[node name="card" parent="UILayer/UI/Hand" unique_id=314497149 instance=ExtResource("1_khwc4")]
 layout_mode = 2
 
-[node name="card2" parent="UILayer/UI/Hand" instance=ExtResource("1_khwc4")]
+[node name="card2" parent="UILayer/UI/Hand" unique_id=753546828 instance=ExtResource("1_khwc4")]
 layout_mode = 2
 
-[node name="Camera" type="Node" parent="."]
+[node name="Camera" type="Node" parent="." unique_id=1008816976]
 
-[node name="FightArena" type="Node3D" parent="."]
+[node name="FightArena" type="Node3D" parent="." unique_id=47398402]
 
-[node name="PhysicalArena" type="StaticBody3D" parent="FightArena"]
+[node name="PhysicalArena" type="StaticBody3D" parent="FightArena" unique_id=427211626]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FightArena/PhysicalArena"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FightArena/PhysicalArena" unique_id=993665909]
 shape = SubResource("CylinderShape3D_dbb5w")
 
-[node name="Visual Arena Marker" type="Marker3D" parent="FightArena/PhysicalArena"]
+[node name="Visual Arena Marker" type="Marker3D" parent="FightArena/PhysicalArena" unique_id=1737726513]
 script = ExtResource("1_oihgf")
 
-[node name="Camera3D" type="Camera3D" parent="FightArena/PhysicalArena"]
+[node name="Camera3D" type="Camera3D" parent="FightArena/PhysicalArena" unique_id=1559004405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 current = true
 
